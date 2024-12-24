@@ -1,0 +1,14 @@
+[cluster:children]
+masters
+workers
+[masters:children]
+first
+[masters]
+192.168.0.12
+[first]
+127.0.0.1
+[workers]
+192.168.0.10
+192.168.0.11
+[nfs]
+192.168.0.9

@@ -1,0 +1,11 @@
+---
+- name: run all checking scripts
+  hosts: first
+  remote_user: root
+  vars_files:
+  - vars.yaml
+  tasks:
+  - name: install node_prere for the first master
+    script:
+     cmd: node_prereq --sudo-user {{sudo_user}} --sudo-for 'install,administer'
+    

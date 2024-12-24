@@ -1,0 +1,26 @@
+---
+- name: Copy check scripts
+  hosts: all
+  remote_user: root  # u can change user and add become: true if u are a sudoer / if u need password add on the command line --ask-become-password
+  tasks:
+  - name: Copy prereq script
+    copy:
+     src: ~/scripts/node_prereq.sh
+     dest: ~/node_prereq.sh
+     mode: '0740'
+  - name: Copy node_precheck script
+    copy:
+     src: ~/scripts/pre-check.sh
+     dest: ~/pre-check.sh
+     mode: '0740'
+- name: Copy nfsFileSetup
+  hosts: nfs
+  remote_user: root  # u can change user and add become: true if u are a sudoer / if u need password add on the command line --ask-become-password
+  tasks:
+  - name: Copy nfs script
+    copy:
+     src: ~/scripts/setupNFS.sh
+     dest: ~/setupNFS.sh
+     mode: '0740'
+    
+
